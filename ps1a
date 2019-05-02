@@ -1,0 +1,68 @@
+
+#!/bin/bash
+
+
+export PS_THEME='\033[01;31m'
+
+function __chk_uid(){
+	if [ $UID -ne 0 ]; then
+		echo -en "\033[01;32m$\033[m"
+	else
+		echo -en "\033[01;31m#\033[m"
+	fi
+}
+
+function cd(){
+	DIR_TO_CD=$1
+	builtin cd "$DIR_TO_CD"
+	\ls -Fa --color=always --group-directories-first
+	unset DIR_TO_CD
+}
+#
+#┃
+#
+#┓
+#$(echo $(__exitcode))
+function __exitcode(){
+	RETVAL=$?
+	case $RETVAL in
+	0)
+		echo -en "\033[01;37m[\033[01;32m0\033[01;37m]\033[m$PS_THEME━\033[m"
+		;;
+	*)
+		echo -en "\033[01;37m[\033[01;31m$RETVAL\033[01;37m]\033[m$PS_THEME━\033[m"
+		;;
+	esac
+}
+#
+
+DIRBAR=$(tput cuf 2; echo -en " \033[01;33mDIR\033[37m: \033[33m$(dirs)\033[m ")
+TIME=$(tput cuf $[$[$COLUMNS-$(echo $(date) | wc -L)]-2]; echo -en $(date))
+
+function pcom(){
+	printf "\n$PS_THEME┏"; printf '━%.s' $(seq 2 $COLUMNS);echo -en "\r" 
+	# echo -e "\r${DIRBAR}\r$TIME"
+#	echo -e "\n"
+	#echo -en "$PS_THEME┗"
+}
+
+#export PROMPT_COMMAND='pcom'
+function __setps1(){
+	export PS1="$PS_THEME┗\`__exitcode\` \`__chk_uid\`\033[01;37m: \033[m"
+}
+function newpcom(){
+	pcom
+	tput cuf 2; echo -en " \033[m📂\033[01;37m: \033[m\033[38;5;11m$(dirs)\033[m \r"
+#	echo -en $TIME
+	tput cuf $[$[$COLUMNS-$(echo " $(date) " | wc -L)]-2]; echo -en " $(date) \r"
+	echo -en "\n"
+}
+
+
+
+#┛
+#┣
+#┫
+#┳
+#┻
+#╋

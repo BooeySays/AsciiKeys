@@ -1,0 +1,50 @@
+#!/bin/bash
+
+function wrap(){
+	read -p 'Enter string: ' -r STRINGTOWRAP
+	STRINGLENGTH=$(echo "$STRINGTOWRAP" | wc -L)
+	STRINGLENGTH2=$(echo "$STRINGTOWRAP" | wc -L)
+	touch wrap1.txt
+	echo -en "┏" #>> wrap1.txt
+	while [ $STRINGLENGTH -gt 0 ]; do
+		echo -en "━" #>> wrap1.txt
+		((STRINGLENGTH -=1))
+	done
+	echo -e "┓" #>> wrap1.txt
+	echo -en "┃" #>> wrap1.txt
+	echo -en "$STRINGTOWRAP" #>> wrap1.txt
+	echo -e "┃" #>> wrap1.txt
+	echo -en "┗" #>> wrap1.txt
+	while [ $STRINGLENGTH2 -gt 0 ]; do
+		echo -en "━" #>> wrap1.txt
+		((STRINGLENGTH2 -=1))
+	done
+	echo -e "┛" #>> wrap1.txt
+	unset STRINGLENGTH STRINGLENGTH2 STRINGTOWRAP
+}
+#     1	─
+#     2	│
+#     3	┌
+#     4	┐
+#     5	└
+#     6	┘
+#     7	├
+#     8	┤
+#     9	┬
+#    10	┴
+#    11	┼
+#    12	╴
+#    13	╵
+#    14	╶
+#    15	╷     
+#1	━
+#     2	┃
+#     3	┏
+#     4	┓
+#     5	┗
+#     6	┛
+#     7	┣
+#     8	┫
+#     9	┳
+#    10	┻
+#    11	╋
