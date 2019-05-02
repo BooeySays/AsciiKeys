@@ -37,12 +37,29 @@ function wrap(){
 #    13	╵
 #    14	╶
 #    15	╷     
-#1	━
-#     2	┃
-#     3	┏
-#     4	┓
-#     5	┗
-#     6	┛
+#1	
+#     2	
+#     3	
+
+function __wrap(){
+	WRAP_TB='━'
+	WRAP_LR='┃'
+	WRAP_TL='┏'
+	WRAP_TR='┓'
+	WRAP_BL='┗'
+	WRAP_BR='┛'
+	read -p 'Enter string to wrap: ' -r STRING_W
+	STRING_LENGTH=`echo -en '$STRING_W' | wc -L`
+	W_LID=$(printf "$WRAP_TL"; printf '━%.s' $(seq 1 $STRING_LENGTH); printf "$WRAP_TR\n")
+	W_STRING=$(printf "$WRAP_LR"; printf '$STRING_W'; printf "$WRAP_LR\n")
+	W_BOT=$(printf "$WRAP_BL"; printf '━%.s' $(seq 1 $STRING_LENGTH); printf "$WRAP_BR\n")
+#     4	
+	echo -en "$W_LID\n$W_STRING\n$W_BOT"
+	unset WRAP_TB WRAP_LR WRAP_TL WRAP_TR WRAP_BL WRAP_BR STRING_LENGTH W_LID W_STRING W_BOT
+}
+
+#     5	
+#     6	
 #     7	┣
 #     8	┫
 #     9	┳
