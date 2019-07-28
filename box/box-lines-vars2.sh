@@ -1,0 +1,77 @@
+# SIDES - HORZ:
+HORZ_B='━'
+HORZ_REG='─'
+HORZ_DBL='═'
+
+# SIDES - VERT:
+VERT_B='┃'
+VERT_REG='│'
+VERT_DBL='║'
+
+# SIDES - SPLIT RIGHT:
+SR_B='┣'
+SR_REG='├'
+SR_DBL='╠'
+
+# SIDES - SPLIT LEFT:
+SL_B='┫'
+SL_REG='┤'
+SL_DBL='╣'
+
+
+# SIDES - SPLIT DOWN:
+SD_B='┳'
+SD_REG='┬'
+SD_DBL='╦'
+
+# SIDES - SPLIT UP:
+SU_B='┻'
+SU_REG='┴'
+SU_DBL='╩'
+
+# SIDES - CROSS:
+CROSS_B='╋'
+CROSS_REG='┼'
+CROSS_DBL='╬'
+
+# CORNERS - TOP LEFT:
+TL_B='┏'
+TL_REG='┌'
+TL_REG_rnd='╭'
+
+# CORNERS - TOP RIGHT:
+TR_B='┓'
+TR_REG='┐'
+TR_REG_rnd='╮'
+
+# CORNERS - BOTTOM LEFTS:
+BL_B='┗'
+BL_REG='└'
+BL_REG_rnd='╰'
+
+
+# CORNERS - BOTTOM RIGHTS:
+BR_B='┛'
+BR_REG='┘'
+BR_REG_rnd='╯'
+
+
+## REG BOX - SIDES:
+HALF_L_REG='╴'
+HALF_U_REG='╵'
+HALF_R_REG='╶'
+HALF_D_REG='╷'
+
+# OTHER:
+FSLASH_REG='╱'
+BSLASH_REG='╲'
+X_REG='╳'
+
+
+# DOUBLE LINED BOX - SIDES:
+
+# DOUBLE LINED BOX - CORNERS:
+TL_DBL='╔'
+TR_DBL='╗'
+BL_DBL='╚'
+BR_DBL='╝'
